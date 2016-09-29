@@ -3,10 +3,10 @@ const data = require('../app'),
 	expect = require('chai').expect;
 
 // Test to create a new user
-// Describe is a mocha function that takes the name of the test & a callback
+// Describe is a mocha function that takes the name of the test & a callback(cb)
 describe('create user', function(){
 
-	// Inside of the anonymous function goes the 'it' function which takes a description of a passing test and a callback
+	// Inside of the anonymous function goes the 'it' function which takes a description of a passing test and a cb
 	it('it should have +1 user after saving',function(){
 
 		// Check how many Users are in the database (db)

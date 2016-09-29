@@ -7,7 +7,13 @@ const hapi = require('hapi'),
 	server = new hapi.Server();
 	// user = require('./models/index');
 
-server.connection({port:4000});
+// Establish connection w/ port & host--host is optional and cause problem in production
+server.connection({
+	port:4000,
+	host:'localhost'
+});
+
+// Register plugins & start server in callback(cb)
 server.register({
 	register: good,
 	options:{
@@ -34,7 +40,10 @@ server.register({
 	});
 });
 
+// Native promise plugin for mongoose
 mongoose.Promise = global.Promise;
+
+// Connecting to mongodb/ connection takes a port the db is listening on & a cb
 mongoose.connect('mongodb://localhost:27017/testing',(err,db)=>{
 	if (!err) {
 		console.log('Connected to mongo');

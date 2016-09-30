@@ -4,7 +4,7 @@ const hapi = require('hapi'),
 	good = require('good'),
 	joi = require('joi'),
 	mongoose = require('mongoose'),
-	routes = require('./routes'),
+	routes = require('./controllers'),
 	server = new hapi.Server();
 	// user = require('./models/index');
 

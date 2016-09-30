@@ -12,6 +12,14 @@ var config = {
 module.exports = [
 	{
 		method:'GET',
+		path:'/',
+		handler:(req,rep)=>{
+			rep(req.payload).redirect('/users');
+		},
+		config
+	},
+	{
+		method:'GET',
 		path:'/users',
 		handler:(req,rep)=>{
 			User.find({}).exec((req,result)=>{

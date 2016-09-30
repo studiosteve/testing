@@ -1,5 +1,3 @@
-// This file could also be consider a user route file
-
 // Require User Model
 var User = require('../models/User');
 
@@ -10,6 +8,7 @@ var config = {
 	}
 };
 
+// Routes
 module.exports = [
 	{
 		method:'GET',
@@ -18,6 +17,16 @@ module.exports = [
 			User.find({}).exec((req,result)=>{
 				rep(result);
 			});
+		},
+		config
+	},
+	{
+		method:'POST',
+		path:'/users',
+		handler:(req,rep)=>{
+			var user = new User(req.payload);
+			user.save();
+			rep(user);
 		},
 		config
 	}

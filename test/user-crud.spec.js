@@ -14,14 +14,13 @@ describe('create user', ()=>{
 		
 		var usersBefore;
 		var usersAfter;
-		var newUser = {name:'Steve', email:'steve@me.com',password:'bacon'};
+		var newUser = {name:'studiosteve', email:'studiosteve@me.com',password:'bacon'};
 
 		// Check how many Users are in the database (db)
 		requested
 		.get('/users')
 		.end((err,res)=>{
 			usersBefore = JSON.parse(res.text).length;
-			console.log('length: ',usersBefore);
 		});
 		
 		// Check how many Users are in the db after post attempt
@@ -30,9 +29,13 @@ describe('create user', ()=>{
 		.type('form')
 		.send(newUser)
 		.end((err,res)=>{
-			usersAfter = JSON.parse(res.text).length;
+			return;
+		});
 
-			// Compare the amount of users before to the amount of users after
+		requested
+		.get('/users')
+		.end((err,res)=>{
+			usersAfter = JSON.parse(res.text).length;
 			expect(usersAfter).to.equal(usersBefore + 1);
 			done();
 		});

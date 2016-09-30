@@ -16,7 +16,7 @@ module.exports = [
 		path:'/users',
 		handler:(req,rep)=>{
 			User.find({}).exec((req,result)=>{
-				rep.send(result);
+				rep(result);
 			});
 		},
 		config

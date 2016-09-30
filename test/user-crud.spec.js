@@ -5,6 +5,11 @@ const data = require('../app'),
 	expect = require('chai').expect,
 	requested = request('http://localhost:4000');
 
+
+// Add a beforeEach to seed the db
+
+// Add a afterEach to sanitize the db
+
 // Test to create a new user
 // Describe is a mocha function that takes the name of the test & a callback(cb)
 describe('create user', ()=>{
@@ -55,3 +60,22 @@ describe('read users', ()=>{
 		});
 	});
 });
+
+// Test to get(read) one user
+describe('read user', ()=>{
+
+	it('it should return a specific user from the database', done=>{
+		requested
+		.get('/users/:id')
+		.end()
+	});
+});
+
+
+
+
+
+
+
+
+

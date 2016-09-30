@@ -10,6 +10,7 @@ var config = {
 
 // Routes
 module.exports = [
+	// GET /
 	{
 		method:'GET',
 		path:'/',
@@ -18,6 +19,7 @@ module.exports = [
 		},
 		config
 	},
+	// GET /users
 	{
 		method:'GET',
 		path:'/users',
@@ -28,6 +30,7 @@ module.exports = [
 		},
 		config
 	},
+	// POST /users
 	{
 		method:'POST',
 		path:'/users',

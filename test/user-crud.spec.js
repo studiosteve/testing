@@ -51,25 +51,21 @@ describe('create user', ()=>{
 		.get('/users')
 		.end((err,res)=>{
 			usersBefore = JSON.parse(res.text).length;
+			requested
+			.post('/users')
+			.type('form')
+			.send(newUser)
+			.end((err,res)=>{
+				// Check how many Users are in the db after post attempt
+				requested
+				.get('/users')
+				.end((err,resp)=>{
+					usersAfter = JSON.parse(resp.text).length;
+					expect(usersAfter).to.equal(usersBefore + 1);
+					done();
+				});
+			});
 		});
-		
-		requested
-		.post('/users')
-		.type('form')
-		.send(newUser)
-		.end((err,res)=>{
-			return;
-		});
-
-		// Check how many Users are in the db after post attempt
-		requested
-		.get('/users')
-		.end((err,res)=>{
-			usersAfter = JSON.parse(res.text).length;
-			expect(usersAfter).to.equal(usersBefore + 1);
-			done();
-		});
-
 	});
 });
 

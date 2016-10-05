@@ -3,7 +3,6 @@ const data = require('../app'),
 	request = require('supertest'),
 	app = require('../app'),
 	expect = require('chai').expect,
-	// mongoose = require('mongoose'),
 	User = require('../models/User'),
 	requested = request('http://localhost:4000');
 
@@ -35,7 +34,7 @@ afterEach(()=>{
 });
 
 
-// Test to create a new user
+// Test to create (post) a new user
 // Describe is a mocha function that takes the name of the test & a callback(cb)
 describe('create user', ()=>{
 
@@ -69,7 +68,7 @@ describe('create user', ()=>{
 	});
 });
 
-// Test to get(read) all users
+// Test to read (get) all users
 describe('read users', ()=>{
 
 	it('it should return all users in database', done=>{
@@ -82,7 +81,7 @@ describe('read users', ()=>{
 	});
 });
 
-// Test to get(read) a user
+// Test to read (get) a user
 // describe('read user', ()=>{
 
 // 	it('it should return a specific user from the database', done=>{
@@ -92,8 +91,7 @@ describe('read users', ()=>{
 // 	});
 // });
 
-// Test to put(update) a user 
-
+// Test to update (put) a user 
 // Test to delete a user
 
 

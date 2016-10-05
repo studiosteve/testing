@@ -3,7 +3,7 @@ const data = require('../app'),
 	request = require('supertest'),
 	app = require('../app'),
 	expect = require('chai').expect,
-	mongoose = require('mongoose'),
+	// mongoose = require('mongoose'),
 	User = require('../models/User'),
 	requested = request('http://localhost:4000');
 
@@ -82,7 +82,7 @@ describe('read users', ()=>{
 	});
 });
 
-// Test to get(read) one user
+// Test to get(read) a user
 // describe('read user', ()=>{
 
 // 	it('it should return a specific user from the database', done=>{
@@ -91,6 +91,11 @@ describe('read users', ()=>{
 // 		.end()
 // 	});
 // });
+
+// Test to put(update) a user 
+
+// Test to delete a user
+
 
 
 

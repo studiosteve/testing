@@ -4,11 +4,10 @@ const hapi = require('hapi'),
 	good = require('good'),
 	joi = require('joi'),
 	mongoose = require('mongoose'),
-	routes = require('./controllers'),
+	routes = require('./routes'),
 	server = new hapi.Server();
-	// user = require('./models/index');
 
-// Establish connection w/ port & host--host is optional and can cause problems in production
+// Establish connection w/ port & host--host is optional and can cause problem in production
 server.connection({
 	port:4000
 });
@@ -47,7 +46,7 @@ server.register({
 mongoose.Promise = global.Promise;
 
 // Connecting to mongodb/ connection takes a port the db is listening on & a cbs
-mongoose.connect('mongodb://studiosteve:pwd@ds053156.mlab.com:53156/liquid_testing',(err,db)=>{
+mongoose.connect('mongodb://localhost:27017/testing',(err,db)=>{
 	if (!err) {
 		console.log('Connected to mongo');
 	}

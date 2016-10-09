@@ -1,4 +1,5 @@
 var mongoose = require('mongoose'),
+	post = require('./Post'),
 	Schema = mongoose.Schema;
 
 // User Schema
@@ -6,7 +7,7 @@ var	userSchema = new Schema({
 		name:String,
 		email:Schema.Types.Mixed,
 		password:Schema.Types.Mixed,
-		post:[{title:String,body:String,date:Date}]
+		post:[post]
 });
 
 // Email validation

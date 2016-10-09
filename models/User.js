@@ -6,7 +6,7 @@ var	userSchema = new Schema({
 		name:String,
 		email:Schema.Types.Mixed,
 		password:Schema.Types.Mixed,
-		post:String
+		post:[{title:String,body:String,date:Date}]
 });
 
 // Email validation

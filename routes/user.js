@@ -23,20 +23,14 @@ module.exports = [
 	{
 		method:'GET',
 		path:'/users',
-		handler:(req,rep)=>{
-			var users = userCtrl.get();
-			rep(users);
-		},
+		handler:userCtrl.get,
 		config
 	},
 	// POST /users
 	{
 		method:'POST',
 		path:'/users',
-		handler:(req,rep)=>{
-			var newUser = userCtrl.post(req.payload);
-			rep(newUser);
-		},
+		handler: userCtrl.post,
 		config
 	}
 ];

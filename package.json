@@ -11,6 +11,7 @@
   "license": "ISC",
   "devDependencies": {
     "chai": "^3.5.0",
+    "locus": "^1.2.0",
     "mocha": "^3.1.0",
     "supertest": "^2.0.0"
   },
@@ -21,7 +22,6 @@
     "good-squeeze": "^5.0.0",
     "hapi": "^15.1.1",
     "joi": "^9.1.0",
-    "locus": "^1.2.0",
     "mongoose": "^4.6.1",
     "request": "^2.75.0",
     "vision": "^4.1.0"

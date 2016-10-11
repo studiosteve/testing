@@ -1,17 +1,19 @@
 // Require User Model
 var User = require('../models/User');
 
-module.exports = {
-	get:function(){
+var userCtrl = {
+	get(req,rep){
 		return User.find({}).exec((err,result)=>{
 			if (err) return "Internal DB error: " + err;
-			return result;
+			rep(result);
 		}); 
 	},
 
-	post:function(newUser){
-		var user = new User(newUser);
+	post(req,rep){
+		var user = new User(req.payload);
 		user.save();
-		return user;
+		rep(user);
 	}
 };
+
+module.exports = userCtrl;

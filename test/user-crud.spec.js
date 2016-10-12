@@ -69,7 +69,7 @@ describe('create user', ()=>{
 });
 
 // Test to read (get) all users
-describe('read users', ()=>{
+describe('GET /users', ()=>{
 
 	it('it should return all users in database', done=>{
 		requested
@@ -82,14 +82,17 @@ describe('read users', ()=>{
 });
 
 // Test to read (get) a user
-// describe('read user', ()=>{
+xdescribe('GET /users/:id', ()=>{
 
-// 	it('it should return a specific user from the database', done=>{
-// 		requested
-// 		.get('/users/:id')
-// 		.end()
-// 	});
-// });
+	it('it should return a specific user from the database', done=>{
+		requested
+		.get('/users/1')
+		.end((err,res)=>{
+			expect(res.text.toLowerCase()).to.contain("studiosteve");
+			done();
+		});
+	});
+});
 
 // Test to update (put) a user 
 // Test to delete a user

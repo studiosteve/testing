@@ -2,7 +2,6 @@
 
 const hapi = require('hapi'),
 	good = require('good'),
-	joi = require('joi'),
 	mongoose = require('mongoose'),
 	routes = require('./routes'),
 	server = new hapi.Server();

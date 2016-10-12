@@ -35,7 +35,7 @@ afterEach(()=>{
 
 // Test to create (post) a new user
 // Describe is a mocha function that takes the name of the test & a callback(cb)
-describe('create user', ()=>{
+describe('POST /user', ()=>{
 
 	// Inside of the anonymous function goes the 'it' function which takes a description of a passing test and a cb
 	it('it should have +1 user after saving',done=>{

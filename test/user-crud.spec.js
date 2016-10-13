@@ -1,6 +1,5 @@
 // Required data and chai.expect
-const data = require('../app'),
-	request = require('supertest'),
+const request = require('supertest'),
 	expect = require('chai').expect,
 	User = require('../models/User'),
 	requested = request('http://localhost:4000');

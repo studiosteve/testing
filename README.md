@@ -28,7 +28,7 @@ Create a test folder as Mocha will look for your test units here. Inside of the 
 
 In this project I created one for each resource (e.g. user-crud.spec.js post-crud.spec.js)
 
-In your test file you'll need to *require yourApp (var server = require('../server.js')), chai (var expect = require('chai').expect) and supertest (var request = require('supertest'))* and depending on how you plan to set up your routes and/or app file you may also need to require the resource/model you will be testing (e.g. *require('../models/User')*).
+In your test file you'll need to *require chai (var expect = require('chai').expect) and supertest (var request = require('supertest'))* and depending on how you plan to set up your routes and/or app file you may also need to require the resource/model you will be testing (e.g. *require('../models/User')*).
 
 And now you are ready to write your first test.
 
@@ -81,6 +81,6 @@ From the command line run the following:
 If you have you've done everything correctly you should initially fail this test without any server side code to fulfill request. 
 
 Write just enough server code--what you believe is enough--until you have a passing test. 
-Then wash and repeat.
+Then wash and repeat ;)
 
 * It is also pertinent to mention that Mocha also includes are beforeEach and afterEach function that can be used to seed and sanitize your database or data structure with the data used to run your test. An example of both can be found in this repos user-crud.spec.js file.

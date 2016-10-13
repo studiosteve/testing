@@ -9,6 +9,13 @@ var userCtrl = {
 		}); 
 	},
 
+	getUser(req,rep){
+		return User.find(req.params.uid).exec((err,result)=>{
+			if(err) return "Internal DB error: " + err;
+			rep(result);
+		});
+	},
+
 	post(req,rep){
 		var user = new User(req.payload);
 		user.save();

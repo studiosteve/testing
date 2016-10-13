@@ -26,6 +26,13 @@ module.exports = [
 		handler:userCtrl.get,
 		config
 	},
+	// GET /users/:id
+	{
+		method:'GET',
+		path:'/users/{uid}',
+		handler:userCtrl.getUser,
+		config
+	},
 	// POST /users
 	{
 		method:'POST',

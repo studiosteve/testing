@@ -81,9 +81,10 @@ describe('GET /users', ()=>{
 });
 
 // Test to read (get) a user
+// Broken/troubleshooting
 xdescribe('GET /users/:id', ()=>{
 
-	it('it should return a specific user from the database', done=>{
+	it('it should return the user with the id of 1 from the database', done=>{
 		requested
 		.get('/users/1')
 		.end((err,res)=>{

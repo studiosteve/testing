@@ -29,7 +29,7 @@ module.exports = [
 	// GET /users/:id
 	{
 		method:'GET',
-		path:'/users/{uid}',
+		path:'/users/{id}',
 		handler:userCtrl.getUser,
 		config
 	},

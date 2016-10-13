@@ -7,11 +7,12 @@ const request = require('supertest'),
 
 // Add a beforeEach to seed the db
 beforeEach(()=>{
+	// The uid is for testing purposes
 	var newUsers = [
-	{name:'studiosteve', email:'studiosteve@me.com',password:'bacon'},
-	{name:'l8niteMike', email:'mike@me.com', password:'poek'},
-	{name:'stevejrmc', email:'stevemc@me.com', password:'swine'},
-	{name:'theDude', email:'thedude@me.com', password:'dudeism'}
+	{name:'studiosteve', email:'studiosteve@me.com',password:'bacon',uid:1},
+	{name:'l8niteMike', email:'mike@me.com', password:'poek',uid:2},
+	{name:'stevejrmc', email:'stevemc@me.com', password:'swine',uid:3},
+	{name:'theDude', email:'thedude@me.com', password:'dudeism',uid:4}
 	];
 
 	newUsers.map(user=>{
@@ -80,14 +81,14 @@ describe('GET /users', ()=>{
 });
 
 // Test to read (get) a user
-// Broken/troubleshooting
-xdescribe('GET /users/:id', ()=>{
+describe('GET /users/:id', ()=>{
 
-	it('it should return the user with the id of 1 from the database', done=>{
+	it('it should return the user with the id of 2 from the database', done=>{
 		requested
-		.get('/users/1')
+		.get('/users/2')
 		.end((err,res)=>{
-			expect(res.text.toLowerCase()).to.contain("studiosteve");
+			console.log(res.body.name);
+			expect(res.body.name).to.equal("l8niteMike");
 			done();
 		});
 	});

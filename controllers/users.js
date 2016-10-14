@@ -10,10 +10,8 @@ var userCtrl = {
 	},
 
 	getUser(req,rep){
-		var id = Number(req.params.id);
-		console.log(typeof id, id);
-		return User.findOne({uid:id}).exec((err,result)=>{
-			if(err) return "Internal DB error: " + err;
+		return User.findById(req.params.id).exec((err,result)=>{
+			if(err) return rep({status: 404});
 			rep(result);
 		});
 	},

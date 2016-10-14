@@ -5,24 +5,22 @@ const request = require('supertest'),
 	requested = request('http://localhost:4000');
 
 
+var id;
 // Add a beforeEach to seed the db
-beforeEach(()=>{
-	// The uid is for testing purposes
-	var newUsers = [
-	{name:'studiosteve', email:'studiosteve@me.com',password:'bacon',uid:1},
-	{name:'l8niteMike', email:'mike@me.com', password:'poek',uid:2},
-	{name:'stevejrmc', email:'stevemc@me.com', password:'swine',uid:3},
-	{name:'theDude', email:'thedude@me.com', password:'dudeism',uid:4}
-	];
+beforeEach(done=>{
+	var newUser = {
+		name:'studiosteve',
+		email:'studiosteve@me.com',
+		password:'bacon'
+	};
 
-	newUsers.map(user=>{
-		requested
-		.post('/users')
-		.type('form')
-		.send(user)
-		.end((err,res)=>{
-			return;
-		});
+	requested
+	.post('/users')
+	.type('form')
+	.send(newUser)
+	.end((err,res)=>{
+		id = res.body._id;
+		done();
 	});	
 });
 
@@ -83,12 +81,11 @@ describe('GET /users', ()=>{
 // Test to read (get) a user
 describe('GET /users/:id', ()=>{
 
-	it('it should return the user with the id of 2 from the database', done=>{
+	it('it should return the user with the id of 1 from the database', done=>{
 		requested
-		.get('/users/2')
+		.get('/users/' + id)
 		.end((err,res)=>{
-			console.log(res.body.name);
-			expect(res.body.name).to.equal("l8niteMike");
+			expect(res.body.name).to.equal("studiosteve");
 			done();
 		});
 	});

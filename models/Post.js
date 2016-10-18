@@ -4,7 +4,8 @@ var mongoose = require('mongoose'),
 var postSchema = new Schema({
 	title:String,
 	body:String,
-	createdOn: {type:Date,default: Date.now}
+	createdOn: {type:Date,default: Date.now},
+	user: {type: mongoose.Schema.ObjectId, ref: 'User'}
 });
 
 var Post = mongoose.model('Post',postSchema);
